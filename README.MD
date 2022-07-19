@@ -1,6 +1,6 @@
 # Deloitte Base
 
-Deloitte Base React-Native MOBILE APPLICATION
+Deloitte Base React-Native Mobile Application
 
 ## Setup Mac or Windows
     - Homebrew (mac only):
@@ -85,8 +85,13 @@ Deloitte Base React-Native MOBILE APPLICATION
 
 
 
-### React
+### React and React-Native
+- React is a JavaScript library that specializes in helping developers build user interfaces, or UIs
+- React Native combines the best parts of native development with React, a best-in-class JavaScript library for building user interfaces. The clue React Native is ***JavaScript-based mobile app framework that allows you to build natively-rendered mobile apps for iOS and Android***, we can see on this image.
+![image](ReactNative.png)
 
+ - React Lifecycle: the bad thing in react is zero structure there are several approaches but the redux pattern approach is the popular one, easy to fix, and easy to test. that makes facebook updates in react cycle in version 16 so it doesn't get anti-patterns in install, unmount and update. please use Because everything goes through a cycle of birth, growth, and death, so does React. Every component in React has a lifecycle that goes through the three main phases of Mounting, Updates, and Unmounting.
+![image](ReactLifecycle.jpeg)
 
 ### Redux
 
@@ -248,7 +253,7 @@ React navigation that we use is version 6, there are 1 components in react-navig
 
 
 
-### Referensi
+### Reference
 - React-native: https://facebook.github.io/react-native/
 - Redux Official: https://redux.js.org/introduction/getting-started
 - Redux Saga Official: https://redux-saga.js.org/
