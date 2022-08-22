@@ -14,6 +14,7 @@ import {
 function* workerGetContactSaga(params) {
   try {
     const response = yield call(api.getContacts);
+    console.log('response',response)
     if (response.status === 200) {
       yield put(addContactSuccess(response.data));
     } else {

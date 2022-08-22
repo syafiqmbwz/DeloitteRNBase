@@ -1,23 +1,28 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-import React, {useEffect, useState} from 'react';
+  import React, {useEffect, useState} from 'react';
 import {View, StyleSheet, TextInput, Text} from 'react-native';
 import {Avatar, Input} from 'react-native-elements';
 import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
 import {useDispatch, useSelector} from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {updateContact} from '../../actions/contact';
+import AutoCompleteBox from '../../components/AutoCompleteBox';
+import AutoCompleteResultList from '../../components/AutoCompleteResultList';
+import {searchMap} from '../../actions/maps';
 
-const index = ({route, navigation}) => {
+const DetailScreen = ({route, navigation}) => {
   const {id} = route.params;
   const {contact, loadingUpdate} = useSelector(({contacts}) => contacts);
+  const {recommended} = useSelector(({maps}) => maps);
+
   const dispatch = useDispatch();
   const [dataProfile, setDataProfile] = useState({
     name: '',
     email: '',
     photo: null,
   });
-
   const [editBool, setEditBool] = useState(false);
+  const [searchText, setSearchText] = useState('');
+  const [searchTextData, setSearchTextData] = useState([]);
 
   const editableInput = () => {
     setEditBool(!editBool);
@@ -44,12 +49,16 @@ const index = ({route, navigation}) => {
     setDataProfile(valueData);
   }, [contact, id]);
 
+  const searchMapByApi = (params)=>{
+    dispatch(searchMap(params));
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.avatarContainer}>
         <Avatar rounded size="xlarge" source={{uri: dataProfile[0]?.photo}} />
       </View>
-      <ScrollView style={styles.formContainer}>
+      {/* <ScrollView style={styles.formContainer}>
         <Input
           autoFocus
           enablesReturnKeyAutomatically
@@ -119,13 +128,22 @@ const index = ({route, navigation}) => {
               <Text style={styles.textEditStyle}>Save</Text>
             </TouchableOpacity>
           </View>
-        )}
-      </ScrollView>
+        )} */}
+        <AutoCompleteBox
+          placeholder="Masukan Nama Tempat"
+          value={searchText}
+          onChangeText={query => {
+            searchMapByApi(query)
+            setSearchText(query)
+          }}
+        />
+        <AutoCompleteResultList data={recommended} />
+      {/* </ScrollView> */}
     </View>
   );
 };
 
-export default index;
+export default DetailScreen;
 
 const styles = StyleSheet.create({
   container: {
