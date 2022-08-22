@@ -1,13 +1,12 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import List from '../screen/Contact/index';
 import Detail from '../screen/Detail';
 
 const Stack = createStackNavigator();
 
-const AppStack = () => {
-  return (
+const AppStack = () => (
     <NavigationContainer>
       {
         <Stack.Navigator>
@@ -16,7 +15,6 @@ const AppStack = () => {
         </Stack.Navigator>
       }
     </NavigationContainer>
-  );
-};
+);
 
 export default AppStack;

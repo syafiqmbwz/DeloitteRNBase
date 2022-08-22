@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import {
+  View, Text, FlatList, StyleSheet,
+} from 'react-native';
 
 const styles = StyleSheet.create({
   AutoCompleteResultList: {
@@ -8,25 +10,25 @@ const styles = StyleSheet.create({
     borderColor: '#aaa',
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
-    elevation: 1
+    elevation: 1,
   },
   AutoCompleteResultItem: {
     padding: 10,
     marginHorizontal: 10,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: '#aaa'
+    borderBottomColor: '#aaa',
   },
   titleText: {
     fontWeight: '600',
     color: '#333',
     marginTop: 5,
     marginBottom: 3,
-    fontSize: 16
+    fontSize: 16,
   },
   text: {
     marginLeft: 2,
-    color: '#999'
-  }
+    color: '#999',
+  },
 });
 
 class AutoCompleteResultList extends Component {
@@ -38,6 +40,7 @@ class AutoCompleteResultList extends Component {
       </View>
     );
   }
+
   render() {
     return (
       <View>
@@ -54,6 +57,6 @@ class AutoCompleteResultList extends Component {
 }
 
 AutoCompleteResultList.defaultProps = {
-  data: []
+  data: [],
 };
 export default AutoCompleteResultList;

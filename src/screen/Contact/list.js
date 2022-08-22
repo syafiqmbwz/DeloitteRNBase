@@ -1,12 +1,14 @@
-import React, {useEffect} from 'react';
-import {FlatList, Text, StyleSheet, View, ActivityIndicator} from 'react-native';
-import ContactItem from './contactItem';
-import {useSelector, useDispatch} from 'react-redux';
-import {addContact} from '../../actions/contact';
+import React, { useEffect } from 'react';
+import {
+  FlatList, Text, StyleSheet, View, ActivityIndicator,
+} from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import ContactItem from './contactItem';
+import { addContact } from '../../actions/contact';
 
 const List = () => {
-  const {contacts} = useSelector(state => state);
+  const { contacts } = useSelector((state) => state);
   const dispatch = useDispatch();
   console.log('contact', contacts.loading);
 
@@ -27,8 +29,8 @@ const List = () => {
               <Text style={styles.textEditStyle}>List Empty</Text>
             </View>
           )}
-          renderItem={({item}) => <ContactItem item={item} />}
-          keyExtractor={item => item.email}
+          renderItem={({ item }) => <ContactItem item={item} />}
+          keyExtractor={(item) => item.email}
         />
       )}
     </View>

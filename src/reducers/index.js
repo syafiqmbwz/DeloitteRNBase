@@ -1,4 +1,4 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 import ContactReducer from './contactReducer';
 import mapsReducer from './mapsReducer';
 
@@ -8,8 +8,6 @@ const appReducer = combineReducers({
 
 });
 
-const rootReducer = (state, action) => {
-  return appReducer(state, action);
-};
+const rootReducer = (state, action) => appReducer(state, action);
 
 export default rootReducer;

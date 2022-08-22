@@ -4,7 +4,7 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -17,21 +17,21 @@ const styles = StyleSheet.create({
     borderColor: '#BBB',
     borderWidth: 2,
     borderRadius: 3,
-    elevation: 3
+    elevation: 3,
   },
   AutoCompleteInput: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   AutoCompleteClose: {
     padding: 5,
     color: '#999',
     fontWeight: '900',
     elevation: 5,
-    fontSize: 18
-  }
+    fontSize: 18,
+  },
 });
 
-const AutoCompleteBox = props => (
+const AutoCompleteBox = (props) => (
   <View style={styles.AutoCompleteBox}>
     <TextInput
       {...props}
@@ -45,7 +45,7 @@ const AutoCompleteBox = props => (
 );
 
 AutoCompleteBox.defaultProps = {
-  clearInput: () => console.log('Clear Input Pressed')
+  clearInput: () => console.log('Clear Input Pressed'),
 };
 
 export default AutoCompleteBox;

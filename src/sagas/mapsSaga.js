@@ -1,7 +1,9 @@
-//Async Storage Library
-import {call, fork, put , takeLatest} from 'redux-saga/effects';
+// Async Storage Library
+import {
+  call, fork, put, takeLatest,
+} from 'redux-saga/effects';
 import api from '../services/api';
-import {SEARCH_MAP } from '../actions/types';
+import { SEARCH_MAP } from '../actions/types';
 import {
   searchMapSuccess,
   searchMapFailed,
@@ -9,18 +11,16 @@ import {
 
 function* workerGetSearch(params) {
   try {
-    const response = yield call(api.getMaps);//mockapi
-    console.log('workerGetSearch',response.data)
+    const response = yield call(api.getMaps);// mockapi
+    console.log('workerGetSearch', response.data);
     if (response.status === 200) {
       yield put(searchMapSuccess(response.data));
+    } else if (response) {
+      yield put(searchMapFailed(response));
     } else {
-      if (response) {
-        yield put(searchMapFailed(response));
-      } else {
-        if (response.status) {
-        }
-        yield put(searchMapFailed(response.data));
+      if (response.status) {
       }
+      yield put(searchMapFailed(response.data));
     }
     console.log(response);
   } catch (error) {

@@ -1,14 +1,12 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import List from './list';
 
-const Index = () => {
-  return (
+const Index = () => (
     <View style={styles.container}>
       <List />
     </View>
-  );
-};
+);
 
 export default Index;
 

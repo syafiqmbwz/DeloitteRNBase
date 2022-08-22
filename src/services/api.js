@@ -13,7 +13,7 @@ const create = (baseURL = 'https://62df5a62976ae7460beadde5.mockapi.io/') => {
     timeout: 10000,
   });
 
-  const setAuthToken = userAuth => api.setHeader('X-Auth-Token', userAuth);
+  const setAuthToken = (userAuth) => api.setHeader('X-Auth-Token', userAuth);
   const setLanguage = () => api.setHeader('Accept-Language', 'id');
   const removeAuthToken = () => api.setHeader('Authorization', '');
 
